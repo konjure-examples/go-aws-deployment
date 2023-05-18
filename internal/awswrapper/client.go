@@ -84,6 +84,7 @@ func (a *AWSWrapper) GetItemWrapper(ctx context.Context, key string) error {
 	input := &dynamodb.GetItemInput{
 		Key: map[string]dyntypes.AttributeValue{
 			"PK": &dyntypes.AttributeValueMemberS{Value: key},
+			"SK": &dyntypes.AttributeValueMemberS{Value: "USER#"},
 		},
 		TableName: aws.String(a.dynamodbTableName),
 	}
